@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    #url: jdbc:postgresql://localhost:5437/
+    url: jdbc:postgresql://localhost:5432/butcher_shop
+    username: ${USERNAME}
+    password: ${PASSWORD}
+    driverClassName: org.postgresql.Driver
