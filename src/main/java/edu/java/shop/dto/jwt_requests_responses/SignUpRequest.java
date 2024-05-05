@@ -1,4 +1,4 @@
-package edu.java.shop.domain.jwt_requests_responses;
+package edu.java.shop.dto.jwt_requests_responses;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Email;

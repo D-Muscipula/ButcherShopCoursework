@@ -5,3 +5,7 @@ spring:
     username: ${USERNAME}
     password: ${PASSWORD}
     driverClassName: org.postgresql.Driver
+
+token:
+  signing:
+    key: ${KEY}
