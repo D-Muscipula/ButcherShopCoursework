@@ -21,9 +21,11 @@ public class Product {
     @Column(name = "description")
     private String description;
 
+    //цена за кг
     @Column(name = "price")
     private double price;
 
+    //наличие в магазине
     @Column(name = "quantity_kg")
     private double quantityKg;
 }

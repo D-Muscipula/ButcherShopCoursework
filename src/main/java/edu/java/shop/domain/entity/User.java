@@ -31,6 +31,9 @@ public class User implements UserDetails {
     @Column(name = "email", unique = true, nullable = false)
     private String email;
 
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private Cart cart;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "role", nullable = false)
     private Role role;
