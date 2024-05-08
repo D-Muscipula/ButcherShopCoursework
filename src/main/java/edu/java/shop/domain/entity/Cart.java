@@ -15,10 +15,10 @@ import java.util.List;
 public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
-    @OneToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @OneToOne(mappedBy = "cart")
     private User user;
 
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
