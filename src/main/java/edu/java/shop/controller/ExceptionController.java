@@ -1,6 +1,8 @@
 package edu.java.shop.controller;
 
 import edu.java.shop.exception.ProductThereIsNoSuchQuantityException;
+import edu.java.shop.exception.ThereIsNoSuchItemInCartException;
+import edu.java.shop.exception.ThereIsNoSuchProductException;
 import edu.java.shop.exception.UserAlreadyExistsException;
 import org.springdoc.api.ErrorMessage;
 import org.springframework.http.HttpStatus;
@@ -29,6 +31,20 @@ public class ExceptionController {
     public ResponseEntity<ErrorMessage> handleProductThereIsNoSuchQuantityException(ProductThereIsNoSuchQuantityException exception) {
         return ResponseEntity
                 .status(HttpStatus.UNPROCESSABLE_ENTITY)
+                .body(new ErrorMessage(exception.getMessage()));
+    }
+
+    @ExceptionHandler(ThereIsNoSuchProductException.class)
+    public ResponseEntity<ErrorMessage> handleThereIsNoSuchProductException(ThereIsNoSuchProductException exception) {
+        return ResponseEntity
+                .status(HttpStatus.NOT_FOUND)
+                .body(new ErrorMessage(exception.getMessage()));
+    }
+
+    @ExceptionHandler(ThereIsNoSuchItemInCartException.class)
+    public ResponseEntity<ErrorMessage> handleThereIsNoSuchItemInCartException(ThereIsNoSuchItemInCartException exception) {
+        return ResponseEntity
+                .status(HttpStatus.NOT_FOUND)
                 .body(new ErrorMessage(exception.getMessage()));
     }
 

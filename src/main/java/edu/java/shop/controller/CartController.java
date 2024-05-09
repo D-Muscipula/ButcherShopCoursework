@@ -22,6 +22,18 @@ public class CartController {
         cartService.addItemToCart(cartItemRequest);
     }
 
+    @DeleteMapping
+    @Operation(summary = "Удаление из корзины определенного количества")
+    public void deleteSomeQuantityOfItemFromCart(@RequestBody CartItemRequest cartItemRequest) {
+        cartService.deleteSomeQuantityOfItemFromCart(cartItemRequest);
+    }
+
+    @DeleteMapping("/{id}")
+    @Operation(summary = "Удаление из корзины элемента'")
+    public void deleteItemFromCart(@PathVariable("id")Long id) {
+        cartService.deleteItem(id);
+    }
+
     @GetMapping
     @Operation(summary = "Получение корзины")
     public List<CartItemDTO> getCart() {
