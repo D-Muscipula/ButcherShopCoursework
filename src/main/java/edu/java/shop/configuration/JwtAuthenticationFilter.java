@@ -2,7 +2,6 @@ package edu.java.shop.configuration;
 
 import edu.java.shop.domain.service.JwtService;
 import edu.java.shop.domain.service.UserService;
-
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

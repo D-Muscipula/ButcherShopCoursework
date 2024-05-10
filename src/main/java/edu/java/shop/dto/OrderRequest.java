@@ -1,7 +1,9 @@
 package edu.java.shop.dto;
 
-public record OrderRequest(String shippingAddress,
-                           String phoneNumber,
-                           String comment) {
+import jakarta.validation.constraints.NotNull;
+
+public record OrderRequest(@NotNull String shippingAddress,
+                           @NotNull String phoneNumber,
+                           @NotNull String comment) {
 
 }

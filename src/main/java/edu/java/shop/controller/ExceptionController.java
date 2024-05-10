@@ -1,9 +1,6 @@
 package edu.java.shop.controller;
 
-import edu.java.shop.exception.ProductThereIsNoSuchQuantityException;
-import edu.java.shop.exception.ThereIsNoSuchItemInCartException;
-import edu.java.shop.exception.ThereIsNoSuchProductException;
-import edu.java.shop.exception.UserAlreadyExistsException;
+import edu.java.shop.exception.*;
 import org.springdoc.api.ErrorMessage;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -48,4 +45,31 @@ public class ExceptionController {
                 .body(new ErrorMessage(exception.getMessage()));
     }
 
+    @ExceptionHandler(ThisProductAlreadyExistsException.class)
+    public ResponseEntity<ErrorMessage> handleThisProductAlreadyExistsException(ThisProductAlreadyExistsException exception) {
+        return ResponseEntity
+                .status(HttpStatus.CONFLICT)
+                .body(new ErrorMessage(exception.getMessage()));
+    }
+
+    @ExceptionHandler(OrderCannotBeCancelledException.class)
+    public ResponseEntity<ErrorMessage> handleOrderCannotBeCancelledException(OrderCannotBeCancelledException exception) {
+        return ResponseEntity
+                .status(HttpStatus.CONFLICT)
+                .body(new ErrorMessage(exception.getMessage()));
+    }
+
+    @ExceptionHandler(OrderCannotBePaidException.class)
+    public ResponseEntity<ErrorMessage> handleOrderCannotBePaidException(OrderCannotBePaidException exception) {
+        return ResponseEntity
+                .status(HttpStatus.CONFLICT)
+                .body(new ErrorMessage(exception.getMessage()));
+    }
+
+    @ExceptionHandler(UserNotAuthenticatedException.class)
+    public ResponseEntity<ErrorMessage> handleUserNotAuthenticatedException(UserNotAuthenticatedException exception) {
+        return ResponseEntity
+                .status(HttpStatus.UNAUTHORIZED)
+                .body(new ErrorMessage(exception.getMessage()));
+    }
 }

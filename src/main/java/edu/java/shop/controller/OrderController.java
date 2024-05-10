@@ -28,4 +28,18 @@ public class OrderController {
         return orderService.getOrders();
     }
 
+    @DeleteMapping("/{id}")
+    @Operation(summary = "Отменить заказ")
+    public void deleteOrder(@PathVariable("id") Long id) {
+        orderService.cancelOrder(id);
+    }
+
+    @PostMapping("/{id}")
+    @Operation(summary = "Заплатить за заказ")
+    public void payForOrder(@PathVariable("id") Long id) {
+        orderService.payForOrder(id);
+    }
+
+
+
 }
