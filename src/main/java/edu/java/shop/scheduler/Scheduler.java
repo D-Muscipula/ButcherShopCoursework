@@ -12,9 +12,9 @@ import org.springframework.stereotype.Component;
 @Log4j2
 public class Scheduler {
     private final OrderService orderService;
-    @Scheduled(fixedDelayString = "100000")
+    @Scheduled(fixedDelayString = "1000000")
     public void update() {
         log.info("it works");
-        orderService.changeOldOrders(3000L, OrderStatus.NEW);
+        orderService.changeOldOrders(30000L, OrderStatus.NEW);
     }
 }
